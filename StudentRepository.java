@@ -1,9 +1,16 @@
 package com.company;
+import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
 public class StudentRepository implements Repository {
     List<Student> students = new ArrayList<Student>();
+
+    public StudentRepository() {
+        List<Student> students = new ArrayList<Student>();
+    }
     public void list() {
 
     }
@@ -12,19 +19,31 @@ public class StudentRepository implements Repository {
         students.add(s);
 
     }
-    @Override
+    /* @Override
     public boolean doesExist(Student s) {
         students.contains(s);
         return false;
     }
+    */
+@Override
+public void doesExist(String name) {
+        for (Student item : students) {
+            if (item.getName().equals(name)) {
+                System.out.println("Taki student istnieje");
+            }
+        }
+
+
+
+    }
     @Override
-    public List<Student> getList() {
-        // TODO Auto-generated method stub
-        return students;
+    public void getList() {
+        System.out.println(students);
     }
     @Override
     public String getSortedList() {
-        // TODO Auto-generated method stub
+        Collections.sort(students);
+        System.out.println(students);
         return null;
     }
 

@@ -1,10 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Repository {
     public void addStudent(Student s);
-    public boolean doesExist(Student s);
-    public List<Student> getList();
+    public void doesExist(String name);
+    public void getList();
     public String getSortedList();
 }
